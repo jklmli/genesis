@@ -23,6 +23,7 @@
   "homepage": "https://github.com/jiaweihli/vue-ts-starter#readme",
   "devDependencies": {
     "ts-node": "4.1.0",
-    "typescript": "2.7.1"
+    "typescript": "2.7.1",
+    "webpack": "3.10.0"
   }
 }
