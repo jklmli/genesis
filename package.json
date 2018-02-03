@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/jiaweihli/vue-ts-starter/issues"
   },
-  "homepage": "https://github.com/jiaweihli/vue-ts-starter#readme"
+  "homepage": "https://github.com/jiaweihli/vue-ts-starter#readme",
+  "devDependencies": {
+    "typescript": "2.7.1"
+  }
 }
