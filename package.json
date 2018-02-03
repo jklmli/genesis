@@ -1,0 +1,24 @@
+{
+  "name": "vue-ts-starter",
+  "version": "0.0.1",
+  "description": "Vue/TypeScript starter package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jiaweihli/vue-ts-starter.git"
+  },
+  "keywords": [
+    "vue",
+    "typescript",
+    "starter"
+  ],
+  "author": "Kevin Li",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jiaweihli/vue-ts-starter/issues"
+  },
+  "homepage": "https://github.com/jiaweihli/vue-ts-starter#readme"
+}
