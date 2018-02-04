@@ -24,6 +24,11 @@ const config: Configuration = {
     new ExtractTextPlugin('style.css')
   ],
   resolve: {
+    alias: {
+      // :KLUDGE: Use full Vue compiler with runtime compiler.
+      // :TODO: Investigate why `vue-template-compiler` doesn't work as expected.
+      vue$: 'vue/dist/vue.esm.js'
+    },
     extensions: ['.ts', '.js', '.json']
   }
 };
