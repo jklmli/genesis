@@ -35,6 +35,7 @@
     "glob": "7.1.2",
     "html-loader": "0.5.5",
     "jake": "8.0.15",
+    "node-emoji": "1.8.1",
     "node-sass": "4.7.2",
     "postcss-loader": "2.1.0",
     "sass-loader": "6.0.6",
