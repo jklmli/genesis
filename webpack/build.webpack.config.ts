@@ -3,10 +3,18 @@ import * as path from 'path';
 import { Configuration } from 'webpack';
 
 const config: Configuration = {
-  entry: './src/index.js',
+  entry: './src/index.ts',
+  module: {
+    rules: [
+      { test: /\.ts$/, use: 'ts-loader' }
+    ]
+  },
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, '..', 'dist')
+  },
+  resolve: {
+    extensions: ['.ts', '.js', '.json']
   }
 };
 
