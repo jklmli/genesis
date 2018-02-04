@@ -7,6 +7,7 @@ const config: Configuration = {
   entry: './src/index.ts',
   module: {
     rules: [
+      { test: /\.html$/, use: 'html-loader' },
       { test: /\.ts$/, use: 'ts-loader' }
     ]
   },
