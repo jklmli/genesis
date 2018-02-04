@@ -1,0 +1,7 @@
+{
+  "extends": "../tslint.json",
+  "rules": {
+    // Test dependencies should remain in devDependencies.
+    "no-implicit-dependencies": false
+  }
+}
