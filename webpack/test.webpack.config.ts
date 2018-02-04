@@ -7,10 +7,24 @@ import * as glob from 'glob';
 import { default as buildConfig } from './build.webpack.config';
 
 const config: Configuration = {
+  // The nyc/istanbul packages require inline source maps in order to do line mappings.
+  devtool: 'inline-source-map',
   entry: glob.sync('./test/**/*.ts', { ignore: glob.sync('./test/dist/**/*.ts') }),
   externals: ['ava'],
   module: {
-    rules: (buildConfig.module as NewModule).rules
+    rules: (buildConfig.module as NewModule).rules.concat([
+      {
+        enforce: 'post',
+        exclude: /node_modules|\.test\.ts$/,
+        test: /\.ts$/,
+        use: {
+          loader: 'istanbul-instrumenter-loader',
+          options: {
+            esModules: true
+          }
+        }
+      }
+    ])
   },
   output: {
     filename: '[name].js',
