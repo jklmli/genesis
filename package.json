@@ -39,6 +39,7 @@
     "jake": "8.0.15",
     "node-emoji": "1.8.1",
     "node-sass": "4.7.2",
+    "nyc": "11.4.1",
     "postcss-loader": "2.1.0",
     "sass-loader": "6.0.6",
     "style-loader": "0.20.1",
