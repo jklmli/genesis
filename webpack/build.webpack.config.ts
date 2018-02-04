@@ -1,7 +1,17 @@
 import * as path from 'path';
 
-import { Configuration } from 'webpack';
+/* tslint:disable:variable-name */
+const BrowserSyncPlugin: IConcretePlugin = require('browser-sync-webpack-plugin') as IConcretePlugin;
+/* tslint:enable:variable-name */
+import { Configuration, Plugin } from 'webpack';
 import * as ExtractTextPlugin from 'extract-text-webpack-plugin';
+
+/**
+ * A plugin that's new-able. Kind of a kludge for the webpack type definitions not including this.
+ */
+interface IConcretePlugin extends Plugin {
+  new(...args: Array<{}>): Plugin;
+}
 
 const config: Configuration = {
   devtool: 'cheap-module-eval-source-map',
@@ -21,7 +31,17 @@ const config: Configuration = {
     path: path.resolve(__dirname, '..', 'dist')
   },
   plugins: [
-    new ExtractTextPlugin('style.css')
+    new ExtractTextPlugin('style.css'),
+    new BrowserSyncPlugin(
+      {
+        host: 'localhost',
+        port: 3000,
+        server: { index: './src/index.html' }
+      },
+      {
+        injectCss: true
+      }
+    )
   ],
   resolve: {
     alias: {
