@@ -1,0 +1,9 @@
+{
+  "extends": "../tslint.json",
+  "rules": {
+    // :TODO: Figure out a general rule that avoids overdocumenting one-off / internal interfaces.
+    "completed-docs": false,
+    // :TODO: This is causing lots of false positives with Vue, investigate this later.
+    "no-unsafe-any": false
+  }
+}
