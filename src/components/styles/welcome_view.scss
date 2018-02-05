@@ -1,0 +1,9 @@
+.welcome-view {
+  align-items: center;
+  background-color: lightgoldenrodyellow;
+  display: flex;
+
+  > :not(:first-child) {
+    margin-left: 10px;
+  }
+}
