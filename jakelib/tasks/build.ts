@@ -2,17 +2,17 @@ import { emoji } from 'node-emoji';
 
 import { execWithLog } from '../utils/exec_with_log';
 
-type Environment = 'development';
+type Environment = 'development' | 'production';
 
 const build: (environment: Environment) => string = (environment: Environment): string => {
   return `npx webpack --config webpack/build.${environment}.webpack.config.ts --progress`;
 };
 
-desc('Build and output the bundle');
+desc('Build and output the production bundle');
 task(('build'), () => {
   execWithLog([
     `echo '${emoji.building_construction}  Building...'`,
-    build('development')
+    build('production')
   ]);
 });
 
