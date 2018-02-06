@@ -4,7 +4,7 @@ import { Configuration, NewModule } from 'webpack';
 import * as ExtractTextPlugin from 'extract-text-webpack-plugin';
 import * as glob from 'glob';
 
-import { default as buildConfig } from './build.webpack.config';
+import { default as buildDevelopmentConfig } from './build.development.webpack.config';
 
 const config: Configuration = {
   // The nyc/istanbul packages require inline source maps in order to do line mappings.
@@ -12,7 +12,7 @@ const config: Configuration = {
   entry: glob.sync('./test/**/*.ts', { ignore: glob.sync('./test/dist/**/*.ts') }),
   externals: ['ava'],
   module: {
-    rules: (buildConfig.module as NewModule).rules.concat([
+    rules: (buildDevelopmentConfig.module as NewModule).rules.concat([
       {
         enforce: 'post',
         exclude: /node_modules|\.test\.ts$/,

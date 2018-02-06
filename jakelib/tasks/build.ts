@@ -2,24 +2,28 @@ import { emoji } from 'node-emoji';
 
 import { execWithLog } from '../utils/exec_with_log';
 
-const webpack: string = 'npx webpack --config webpack/build.webpack.config.ts --progress';
+type Environment = 'development';
 
-desc('Compile the app');
+const build: (environment: Environment) => string = (environment: Environment): string => {
+  return `npx webpack --config webpack/build.${environment}.webpack.config.ts --progress`;
+};
+
+desc('Build and output the bundle');
 task(('build'), () => {
   execWithLog([
     `echo '${emoji.building_construction}  Building...'`,
-    webpack
+    build('development')
   ]);
 });
 
 namespace('build', () => {
-  desc('Compile and analyze included unminified dependency filesizes');
+  desc('Build the app in dev mode and analyze included unminified dependency filesizes');
   task(('analyze'), () => {
-    execWithLog([`${webpack} --json | npx webpack-bundle-size-analyzer`]);
+    execWithLog([`${build('development')} --json | npx webpack-bundle-size-analyzer`]);
   });
 
-  desc('Compile the app and continuously rebuild when there are changes');
+  desc('Build the app in dev mode and continuously rebuild when there are changes');
   task(('watch'), () => {
-    execWithLog([`${webpack} --watch`]);
+    execWithLog([`${build('development')} --watch`]);
   });
 });
