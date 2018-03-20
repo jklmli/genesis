@@ -1,11 +1,10 @@
 {
+  "extends": "../tsconfig.json",
   "compilerOptions": {
     "module": "es2015",
     "moduleResolution": "node",
-    "noImplicitReturns": true,
     // The packages nyc/istanbul require source maps in order to do line mappings.
     "sourceMap": true,
-    "strict": true,
     // AVA requires us to support es2015 in order to use promises and async functions.
     // :LINK: https://github.com/avajs/ava/tree/b6fa8b93e0d39c2da4d0cf0e0a4471df8e0a99fa#typescript-support
     "target": "es2015"

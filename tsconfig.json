@@ -1,0 +1,6 @@
+{
+  "compilerOptions": {
+    "noImplicitReturns": true,
+    "strict": true
+  }
+}
