@@ -1,6 +1,13 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "noImplicitReturns": true,
+    "paths": {
+      "*": [
+        "node_modules/*",
+        "typings/*"
+      ]
+    },
     "strict": true
   }
 }
