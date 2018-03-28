@@ -1,0 +1,34 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/genesis
+    docker:
+      - image: node:carbon
+    steps:
+      - checkout
+      - restore_cache:
+          key: cache-{{ .Branch }}-{{ checksum "package.json" }}
+      - run:
+          name: Installing JS dependencies
+          command: yarn
+      - save_cache:
+          key: cache-{{ .Branch }}-{{ checksum "package.json" }}
+          paths:
+            - "node_modules"
+      - run:
+          name: Linting code
+          command: npx jake lint
+      - run:
+          name: Smoke testing code compilation
+          command: npx jake smoke
+      - run:
+          name: Running tests
+          command: npx jake test
+      - run:
+          name: Building production bundle
+          command: npx jake build
+      # To set this up, enable this repo in Coveralls, and set the coveralls token in CircleCI's project settings as an
+      # environment variable with key `COVERALLS_REPO_TOKEN`.
+      #- run:
+      #    name: Reporting test coverage to Coveralls
+      #    command: npx jake test:report
