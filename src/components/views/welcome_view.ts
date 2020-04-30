@@ -49,9 +49,7 @@ class WelcomeView extends Vue {
 
   @Watch(['state', 'sleepNumber'])
   protected alertOnOversleep(newVal: number, oldVal: number): void {
-    if (newVal > AppViewModel.DEFAULT_SLEEP_NUMBER) {
-      alert("You've gotten a lot of sleep!");
-    }
+    throw new Error('whoops, this is an error');
   }
 }
 
